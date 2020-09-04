@@ -8,10 +8,6 @@ from .models import MyURL
 
 # Create your views here.
 def index(request):
-    # message = newURL()
-    # template = loader.get_template('longener/index.html')
-    # context = {'message': message}
-    # return HttpResponse(template.render(context,request=request))
     context = {}
     if request.method == "POST":
         state = "post"
@@ -31,9 +27,5 @@ def index(request):
     return HttpResponse(template.render(context, request=request))
 
 def redirection(request, slug):
-    # template = loader.get_template('longener/index.html')
-    # context = {'message': message}
-    # if Comment.objects.filter(user_id=my_user.id).exists():
     my_redirect = get_object_or_404(MyURL, new_url=slug)
-    message = slug
     return redirect(my_redirect.former_url)
