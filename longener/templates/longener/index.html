@@ -10,6 +10,23 @@
     <body>
         <h1>Longen that URL</h1>
 
+        {% if state == "get" %}
+        <form method="post" class="">
+            {% csrf_token %}
+              <div class="" style="width: 100%;">
+                <div class=" ">
+                    <p>URL to longen: {{ form.formerURL }}</p>
+                </div>
+                <div class="">
+                    <p>Custom URL: {{ form.customURL }}</p>
+                </div>
+                <p style="color: red">{{ form.errors }}</p>
+            <input  type="submit" value="Valider" />
+        </form>
+        {% else %}
+        <p>Form send! Your URL is:</p>
+        {% endif %}
+
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Third party plugin JS-->
